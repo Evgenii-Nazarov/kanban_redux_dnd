@@ -8,7 +8,7 @@ import {addCard, getCards} from "./redux/action";
 function App(props) {
 
     useEffect(() => {
-        props.getCards()
+
     })
 
     const addCardButtonHandler = () => {
@@ -18,7 +18,7 @@ function App(props) {
             priority: 3
         }
 
-        props.addCard(newCard)
+
     }
 
     return (
@@ -35,8 +35,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addCard: (card) => dispatch(addCard(card)),
-    getCards: () => dispatch(getCards())
+    // addCard: (card) => dispatch(addCard(card)),
+    // getCards: () => dispatch(getCards())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

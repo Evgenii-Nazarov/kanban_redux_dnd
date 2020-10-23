@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Button, Card, CardBody, CardTitle, CardSubtitle, CardFooter} from 'reactstrap';
-import {deleteCard, moveLeftCard, moveRightCard} from "./redux/action";
+import {Button, Card, CardBody, CardFooter, CardSubtitle, CardTitle} from 'reactstrap';
 
 function CardItem(props) {
 
@@ -9,7 +8,7 @@ function CardItem(props) {
     const {name, status, priority, _id} = card;
 
     const deleteButtonHandler = () => {
-        props.deleteCard(_id);
+
     }
 
     return (
@@ -20,11 +19,11 @@ function CardItem(props) {
                 {priority}
             </CardBody>
             <CardFooter>
-                <Button onClick={() => props.moveLeftCard(card, props.columns)}>left</Button>
+                <Button>left</Button>
                 {' '}
                 <Button onClick={deleteButtonHandler}>Delete</Button>
                 {' '}
-                <Button onClick={() => props.moveRight(card, props.columns)}>right</Button>
+                <Button>right</Button>
             </CardFooter>
         </Card>
     );
@@ -35,9 +34,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteCard: (cardId) => dispatch(deleteCard(cardId)),
-    moveRight: (card, columns) => dispatch(moveRightCard(card, columns)),
-    moveLeftCard: (card, columns) => dispatch(moveLeftCard(card, columns)),
+    // deleteCard: (cardId) => dispatch(deleteCard(cardId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardItem);
