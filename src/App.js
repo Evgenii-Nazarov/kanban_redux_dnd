@@ -1,19 +1,42 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import Card from "./Card";
+import Board from "./Board";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Button} from "reactstrap";
+import {addCard, getCards} from "./redux/action";
 
-function App() {
+function App(props) {
+
+    useEffect(() => {
+        props.getCards()
+    })
+
+    const addCardButtonHandler = () => {
+        const newCard = {
+            name: 'Petr',
+            status: 'review',
+            priority: 3
+        }
+
+        props.addCard(newCard)
+    }
 
     return (
-        <div>
-           <Card/>
-        </div>
+        <Container>
+            <Button onClick={addCardButtonHandler}>Add new card</Button>
+            <Board cards={props.cards} columns={props.columns}/>
+        </Container>
     );
 }
 
 const mapStateToProps = (state) => ({
-    bye: state.cards,
-    hello: state.columns
+    cards: state.cards,
+    columns: state.columns
 })
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+    addCard: (card) => dispatch(addCard(card)),
+    getCards: () => dispatch(getCards())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

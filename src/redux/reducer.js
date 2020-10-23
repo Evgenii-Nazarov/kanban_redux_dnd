@@ -34,11 +34,11 @@ const initialState = {
         },
         {
             status: 'progress',
-            _id: 2
+            _id: 3
         },
         {
             status: 'done',
-            _id: 2
+            _id: 4
         },
     ]
 }
@@ -56,12 +56,33 @@ const kanban = (state = initialState, action) => {
                 }]
             }
 
+        case 'GET_CARDS' :
+            return {
+                ...state,
+                cards: action.payload
+            }
+
         case 'DELETE_CARD' :
             const newCards = state.cards.filter(el => el._id !== action.payload)
             return {
                 ...state,
                 cards: newCards
             }
+
+        case 'MOVE_RIGHT' :
+            const newList = state.cards.map(el => {
+                if (el._id === action.payload){
+                    const colStatuses = state.columns.map(el => el.status);
+                    return {...el, status: colStatuses[colStatuses.indexOf(el.status) + 1]}
+                } else {
+                    return el
+                }
+            })
+            return {
+                ...state,
+                cards: newList
+            }
+
 
         default:
             return state
