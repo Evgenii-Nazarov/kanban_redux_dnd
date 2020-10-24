@@ -20,8 +20,6 @@ function CardItem(props) {
                 {priority}
             </CardBody>
             <CardFooter>
-                <Button onClick={() => props.moveLeftCard(card, props.columns)}>left</Button>
-                {' '}
                 <Button onClick={deleteButtonHandler}>Delete</Button>
                 {' '}
                 <Button onClick={() => props.moveRight(card, props.columns)}>right</Button>
