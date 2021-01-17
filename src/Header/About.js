@@ -124,7 +124,7 @@ const About = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/Evgenii-Nazarov/calories_app"
+          href="https://github.com/Evgenii-Nazarov/kanban_redux_dnd"
         >
           a link to github
         </a>
