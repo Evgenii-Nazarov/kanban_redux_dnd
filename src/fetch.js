@@ -2,6 +2,7 @@ import axios from "axios";
 import { notification } from "antd";
 
 const server = "https://nazarov-kanban-server.herokuapp.com";
+// const server = "http://localhost:5000";
 
 function httpMethod(method, url, data) {
   return axios({

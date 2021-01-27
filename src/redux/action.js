@@ -13,6 +13,28 @@ export function getCards() {
   };
 }
 
+export function setDemoCards() {
+  return (dispatch) => {
+    post("/card/demo")
+      .then(() => {
+        dispatch(getCards());
+      })
+      .catch();
+  };
+}
+
+export function deleteAllCards() {
+  return (dispatch) => {
+    del("/card/all" )
+        .then(() => {
+          dispatch(setDemoCards());
+        })
+        .catch();
+  }
+}
+
+
+
 export function addCard(card) {
   return (dispatch) => {
     post("/card", card)
@@ -83,20 +105,6 @@ export function changeCardColumnDrop(params) {
         });
       })
       .catch();
-  };
-}
-
-export function changeCardPosition({ card, cards, nextIndex }) {
-  const nextCard = cards.filter((el) => el.status === card.status)[nextIndex];
-  const nextCardIndex = cards.findIndex((el) => el._id === nextCard._id);
-
-  const newItems = cards.filter((el) => el._id !== card._id);
-  newItems.splice(nextCardIndex, 0, card);
-  return (dispatch) => {
-    dispatch({
-      type: "UPDATE_STATE",
-      payload: { cards: newItems },
-    });
   };
 }
 

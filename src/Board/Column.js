@@ -7,7 +7,7 @@ import ItemTypes from "../DragNDrop/types";
 import { changeCardColumnDrop } from "../redux/action";
 
 function Column(props) {
-  const { cards, column, columns } = props;
+  const { cards = [], column, columns=[] } = props;
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.CARD,

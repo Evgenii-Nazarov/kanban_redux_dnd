@@ -13,11 +13,11 @@ const initialState = {
     },
     {
       status: "review",
-      name: "To review",
+      name: "In review",
       _id: 2,
     },
     {
-      status: "Done",
+      status: "done",
       name: "Done",
       _id: 4,
     },

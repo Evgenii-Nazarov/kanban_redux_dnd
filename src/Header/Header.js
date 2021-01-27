@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, PageHeader } from "antd";
-import { connect } from "react-redux";
-import { addCard, openModal } from "../redux/action";
+import {Button, PageHeader} from "antd";
+import {connect} from "react-redux";
+import {addCard, deleteAllCards, openModal} from "../redux/action";
 
 const Header = (props) => {
   return (
@@ -10,6 +10,9 @@ const Header = (props) => {
         title="Kanban"
         subTitle="drag and drop"
         extra={[
+          <Button shape="round" key="2" onClick={props.deleteAllCards}>
+            Delete all tasks and set demo data
+          </Button>,
           <Button
             shape="round"
             key="2"
@@ -48,6 +51,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addCard: (card) => dispatch(addCard(card)),
+  deleteAllCards: () => dispatch(deleteAllCards()),
   openModal: (card) => dispatch(openModal(card)),
 });
 

@@ -74,7 +74,7 @@ const EditForm = (props) => {
         <Select placeholder="Select status">
           <Option value="todo">To do</Option>
           <Option value="progress">In progress</Option>
-          <Option value="review">To review</Option>
+          <Option value="review">In review</Option>
           <Option value="done">Done</Option>
         </Select>
       </Form.Item>
