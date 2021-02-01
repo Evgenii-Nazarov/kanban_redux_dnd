@@ -7,7 +7,7 @@ import ItemTypes from "../DragNDrop/types";
 import { changeCardColumnDrop } from "../redux/action";
 
 function Column(props) {
-  const { cards = [], column, columns=[] } = props;
+  const { cards = [], column, columns = [] } = props;
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -41,6 +41,7 @@ function Column(props) {
 
         {cards
           .filter((el) => el.status === column.status)
+          .sort((a, b) => a.priority - b.priority)
           .map((el, i) => (
             <CardItem
               isInFirstColumn={el.status === columns[0].status}
