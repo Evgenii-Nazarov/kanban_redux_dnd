@@ -3,8 +3,10 @@
   
 Welcome to a REST-ful kanban application that helps to control and monitor team's tasks.
   
-**A Netlify deployed version**:  https://kanban-redux-dnd.netlify.app/ 
-  
+**A Netlify deployed version**:  https://kanban-redux-dnd.netlify.app/
+
+Server deployed at Heroku.
+
 **Front end stack** : 
 - JavaScript ES6
 - React 
