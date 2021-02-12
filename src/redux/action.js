@@ -25,15 +25,13 @@ export function setDemoCards() {
 
 export function deleteAllCards() {
   return (dispatch) => {
-    del("/card/all" )
-        .then(() => {
-          dispatch(setDemoCards());
-        })
-        .catch();
-  }
+    del("/card/all")
+      .then(() => {
+        dispatch(setDemoCards());
+      })
+      .catch();
+  };
 }
-
-
 
 export function addCard(card) {
   return (dispatch) => {
