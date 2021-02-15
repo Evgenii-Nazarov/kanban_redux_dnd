@@ -42,12 +42,6 @@ const kanban = (state = initialState, action) => {
         cards: [...newList, { ...movingCard, status: newStatus }],
       };
 
-    // case 'OPEN_MODAL' :
-    //     return {
-    //         ...state,
-    //         cards: newCardsArray
-    //     }
-
     case "UPDATE_STATE":
       const data = action.payload;
       return {
