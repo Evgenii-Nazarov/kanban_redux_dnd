@@ -1,7 +1,7 @@
 import axios from "axios";
 import { notification } from "antd";
 
-const server = "https://nazarov-kanban-server.herokuapp.com";
+const server = "https://kanban-server-nazarov-25871f7a969c.herokuapp.com/";
 // const server = "http://localhost:5000";
 
 function httpMethod(method, url, data) {
